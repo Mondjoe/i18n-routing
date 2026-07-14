@@ -1,11 +1,13 @@
-type Lang = "en" | "de" | "cs";
-
-export default async function Layout({
+export default function Root({
   children,
   params,
 }: {
   children: React.ReactNode;
-  params: { lang: Lang };
+  params: { lang: Locale };
 }) {
-  return <>{children}</>;
+  return (
+    <html lang={params.lang}>
+      <body>{children}</body>
+    </html>
+  );
 }
