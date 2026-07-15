@@ -1,20 +1,27 @@
-import Sidebar from './components/Sidebar'
-import Topbar from './components/Topbar'
-import DashboardShell from './components/DashboardShell'
-import { SidebarProvider } from './components/SidebarContext'
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
 
-export default function DashboardLayout({ children }) {
-  return (
-    <SidebarProvider>
-      <DashboardShell>
-        <Sidebar />
-        <div className="flex flex-col flex-1">
-          <Topbar />
-          <main className="p-6">
-            {children}
-          </main>
-        </div>
-      </DashboardShell>
-    </SidebarProvider>
-  )
-}
+  <OperatorMetricCard
+    label="Attestation Rate"
+    value={`${info.performance.attestationRate}%`}
+    icon={<Activity size={22} />}
+  />
+
+  <OperatorMetricCard
+    label="Inclusion Delay"
+    value={`${info.performance.inclusionDelay} ms`}
+    icon={<Gauge size={22} />}
+  />
+
+  <OperatorMetricCard
+    label="Sync Participation"
+    value={`${info.performance.syncParticipation}%`}
+    icon={<Zap size={22} />}
+  />
+
+  <OperatorMetricCard
+    label="Slashing Risk"
+    value={info.slashingRisk}
+    icon={<Shield size={22} />}
+  />
+
+</div>
