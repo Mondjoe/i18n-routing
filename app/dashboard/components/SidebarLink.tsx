@@ -1,30 +1,14 @@
-'use client'
+import SidebarLink from './SidebarLink'
 
-import { usePathname } from 'next/navigation'
-
-export default function SidebarLink({
-  href,
-  label,
-  icon
-}: {
-  href: string
-  label: string
-  icon?: React.ReactNode
-}) {
-  const pathname = usePathname()
-  const isActive = pathname.startsWith(href)
-
+export default function Sidebar() {
   return (
-    <a
-      href={href}
-      className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-colors
-        ${isActive
-          ? 'bg-green-600 text-white operator-glow'
-          : 'text-neutral-300 hover:text-white hover:bg-neutral-800'}
-      `}
-    >
-      {icon}
-      <span>{label}</span>
-    </a>
+    <div className="p-4 space-y-2">
+      <SidebarLink href="/dashboard" label="Dashboard" />
+      <SidebarLink href="/dashboard/validators" label="Validators" />
+      <SidebarLink href="/dashboard/logs" label="Attestation Logs" />
+      <SidebarLink href="/dashboard/node" label="Node Metrics" />
+      <SidebarLink href="/dashboard/wallet" label="Wallet / RPC" />
+      <SidebarLink href="/terminal" label="Operator Terminal" />
+    </div>
   )
 }
