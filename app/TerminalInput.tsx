@@ -13,13 +13,25 @@ export default function TerminalInput({ onCommand }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        className="w-full bg-neutral-900 text-green-400 p-3 rounded border border-neutral-700 outline-none"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        placeholder="operator@charm:~$"
-      />
+    <form onSubmit={handleSubmit} className="mt-4">
+      <div className="flex items-center gap-2 bg-neutral-900 operator-border p-3 rounded">
+        
+        {/* Operator Prompt */}
+        <span className="text-green-400 operator-title">
+          operator@charm:~$
+        </span>
+
+        {/* Input Field */}
+        <input
+          className="flex-1 bg-transparent text-green-400 outline-none operator-input"
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          autoFocus
+        />
+
+        {/* Blinking Cursor */}
+        <span className="text-green-400 cursor-blink">█</span>
+      </div>
     </form>
   )
 }
