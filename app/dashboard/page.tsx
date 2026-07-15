@@ -1,20 +1,25 @@
-export default function DashboardPage() {
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div className="p-6 rounded-xl bg-neutral-900 border border-neutral-800">
-        <h2 className="text-xl font-semibold mb-2">Validator Status</h2>
-        <p className="text-neutral-400">Online • Syncing • Healthy</p>
-      </div>
+<div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-10">
 
-      <div className="p-6 rounded-xl bg-neutral-900 border border-neutral-800">
-        <h2 className="text-xl font-semibold mb-2">Node Metrics</h2>
-        <p className="text-neutral-400">CPU • RAM • Disk • Network</p>
-      </div>
+  <OperatorChart title="Attestation Performance">
+    <svg width="100%" height="100%" viewBox="0 0 300 120">
+      <polyline
+        fill="none"
+        stroke="rgba(0,255,140,0.8)"
+        strokeWidth="3"
+        points="10,80 50,60 90,70 130,40 170,50 210,30 250,45 290,20"
+      />
+    </svg>
+  </OperatorChart>
 
-      <div className="p-6 rounded-xl bg-neutral-900 border border-neutral-800">
-        <h2 className="text-xl font-semibold mb-2">Attestation Logs</h2>
-        <p className="text-neutral-400">Performance • Missed • Included</p>
-      </div>
-    </div>
-  )
-}
+  <OperatorChart title="Node Health Radar">
+    <svg width="100%" height="100%" viewBox="0 0 200 200">
+      <polygon
+        points="100,20 170,70 150,150 50,150 30,70"
+        fill="rgba(0,255,140,0.15)"
+        stroke="rgba(0,255,140,0.8)"
+        strokeWidth="2"
+      />
+    </svg>
+  </OperatorChart>
+
+</div>
