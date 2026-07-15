@@ -1,15 +1,40 @@
-.operator-glow {
-  box-shadow: 0 0 20px rgba(0, 255, 140, 0.15);
+/* Operator Title Glow */
+.operator-title {
+  text-shadow: 0 0 12px rgba(0, 255, 140, 0.45);
+  letter-spacing: 0.08em;
 }
 
-.operator-border {
-  border: 1px solid rgba(255, 255, 255, 0.08);
+/* Global Operator Shell Glow */
+.operator-shell {
+  box-shadow: inset 0 0 80px rgba(0, 255, 140, 0.05);
 }
 
-.cursor-blink {
-  animation: blink 1s step-end infinite;
+/* Operator Badge */
+.operator-badge {
+  font-size: 0.7rem;
+  color: rgba(0, 255, 140, 0.8);
+  letter-spacing: 0.15em;
 }
 
-@keyframes blink {
-  50% { opacity: 0; }
+/* Operator Divider */
+.operator-divider {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin: 0.75rem 0;
+}
+
+/* Operator Hover Glow */
+.operator-hover:hover {
+  box-shadow: 0 0 25px rgba(0, 255, 140, 0.25);
+  transition: box-shadow 0.2s ease;
+}
+
+/* Operator Pulse (for status indicators) */
+@keyframes operatorPulse {
+  0% { opacity: 0.4; }
+  50% { opacity: 1; }
+  100% { opacity: 0.4; }
+}
+
+.operator-pulse {
+  animation: operatorPulse 1.5s infinite;
 }
