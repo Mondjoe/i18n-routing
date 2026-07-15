@@ -20,14 +20,32 @@ export default function Terminal() {
   }
 
   return (
-    <div className="bg-black text-green-400 p-6 rounded-xl border border-neutral-800 h-[80vh] flex flex-col">
-      <div className="flex-1 overflow-auto mb-4">
+    <div className="operator-terminal-frame flex flex-col h-[80vh]">
+
+      {/* Operator Terminal Header */}
+      <div className="operator-terminal-header">
+        <div className="flex items-center gap-2">
+          <div className="w-2 h-2 bg-green-400 rounded-full operator-pulse"></div>
+          <span className="operator-title">CharmCapsule Terminal</span>
+        </div>
+
+        <span className="operator-badge">SOVEREIGN MODE</span>
+      </div>
+
+      {/* Terminal Output */}
+      <div className="operator-terminal-output flex-1 overflow-auto mb-4">
         {history.map((item, idx) => (
           <TerminalOutput key={idx} cmd={item.cmd} output={item.output} />
         ))}
       </div>
 
+      {/* Terminal Input */}
       <TerminalInput onCommand={runCommand} />
+
+      {/* Watermark */}
+      <div className="operator-terminal-watermark">
+        CHARM CAPSULE // OPERATOR
+      </div>
     </div>
   )
 }
